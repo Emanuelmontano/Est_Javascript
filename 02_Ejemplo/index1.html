@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>javascript</title>
+</head>
+<body>
+  Digite la palabra a Cambiar a Mayuscula:
+  <input type="text" id="mayuscula" onchange="letrasMayusculas()"><br/><br/>
+  <!-- Ejemplo para restablecer form -->
+  <form onreset="restablecer()">
+      ejemplo:<input type="text"><br>
+      <input type="reset">
+  </form>
+  <br/><br/>
+  <div onmouseover="mouseover(this)" style="background-color: #f0f313; width: 170px;height: 20px;padding:40px;"> 
+    Pasar el Mouse por Aquí
+  </div>
+  <textarea onselect="seleccion()">
+    Hola como esta desde textarea
+  </textarea>
+  <h1 id="texto" onmousedown="mousedown()" onmouseup="mouseUp()">Hola Mundo !!!</h1>
+
+  <script type="text/javascript">
+      function letrasMayusculas() {
+        var x = document.getElementById("mayuscula");
+        x.value = x.value.toUpperCase();
+      }
+
+      function restablecer() {
+        alert("Se ha restablecer el Text");
+      }
+
+      function mouseover(obj) {
+       obj.innerHTML = "Hola Mundo";
+      }
+
+      function seleccion() {
+        alert("Usted a Seleccionado");
+      }
+
+      function mousedown() {
+        document.getElementById("texto").style.color = "green";
+      }
+
+      function mouseUp() {
+        document.getElementById("texto").style.color = "yellow";
+      }
+  </script>
+</body>
+
+</html>

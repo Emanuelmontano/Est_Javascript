@@ -1,0 +1,104 @@
+
+<html>
+<head>
+<meta content="text/html"; charset="UTF-8" />
+<title>Registro de Estudiantes</title>
+
+<!-- Iniciamos nuestro JavaScript-->
+<script> 
+function evento_onload() {
+  alert('Ingrese los datos de Usuario.');
+}
+
+function evento_onclick() {
+  alert('Los datos han sido enviados.');
+}
+
+function evento_onfocus(x) {
+  x.style.background = "#ECF0F1";
+}
+
+function evento_oncopy() {
+  alert("El texto ha sido copiado.");
+}
+
+</script> <!-- Aquí finaliza el código JavaScript-->
+
+
+<style type="text/css">
+body{
+  background: #ECF0F1;
+}
+label{
+  font-weight: bold;
+}
+select{
+  width: 100%;
+}
+#contenedor{
+  background: #CCCCCC;
+  width: 500px;
+  margin: 100px 0 0 400px;
+}
+
+</style>
+
+</head>
+
+<body onload="evento_onload()">
+      <div id="contenedor" align="center"><h4>FORMULARIO DE ESTUDIANTES</h4>
+        <table>
+          <form id="formulario">
+          <tr>      
+                  <td><label>* Código:</label></td>
+                    <td><input id="codigo" name="codigo" type="text" onfocus="evento_onfocus(this)" /></td>
+                  </tr>
+          <tr>      
+                  <td><label>* Nombres:</label></td>
+                    <td><input id="nombres" name="nombres" type="text" onfocus="evento_onfocus(this)" /></td>
+                  </tr>
+                  <tr>
+                  <td><label>* Apellidos:</label></td>
+                    <td><input id="apellidos" name="apellidos" type="text" onfocus="evento_onfocus(this)"/></td>
+                  </tr>
+                  <tr>
+                  <td><label>* Identificación:</label></td>
+                    <td><input id="identificación" name="identificación" type="text" onfocus="evento_onfocus(this)"/></td>
+                </tr>
+                  <tr>
+                  <td><label>* Género:</label></td>
+                  <td><select id="genero" name="genero" onfocus="evento_onfocus(this)">
+                  <option  name="" value=""> Selecciona el género </option>
+            <option name="masculino" value="masculino"> Masculino </option>
+            <option name="femenino" value="femenino"> Femenino </option>
+            </select></td>
+          </tr>
+          <tr>
+                  <td><label>* Fecha de nacimiento:</label></td>
+                    <td><input id="fnacimiento" name="fnacimiento" type="date" onfocus="evento_onfocus(this)" /></td>
+                </tr>
+                  <tr>
+                  <td><label>* Email:</label></td>
+                    <td><input id="email" name="email" type="text" onfocus="evento_onfocus(this)" oncopy="evento_oncopy()"/></td>
+                </tr>
+                  <tr>
+                  <td><label>* Teléfono:</label></td>
+                  <td><input id="telefono" name="telefono" type="text" onfocus="evento_onfocus(this)"/></td>
+                </tr>
+                  <tr>
+                  <td><label>* Dirección:</label></td>
+                    <td><input id="direccion" name="direccion" type="text" onfocus="evento_onfocus(this)"/></td>
+                  </tr>
+                  <tr>
+                  <td><label> Observaciones:</label></td>
+                    <td><textarea id="observaciones" name="observaciones" onfocus="evento_onfocus(this)"></textarea></td>
+                  </tr>
+                    <td><p>*Campos obligatorios</p></td>
+                  <tr>
+                  <td><input id="enviar" name="enviar" type="submit" value="Enviar" onclick="evento_onclick()" /></td>
+            </tr>
+        </form>
+      </table>
+    </div>
+  </body>
+</html>

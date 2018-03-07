@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+          function cambiarContenido(){
+                  var p=document.getElementById("titulo");
+                  p.innerHTML="Registro de Docentes";
+          }
+          function crearElemento() {
+                  var encabezado = document.createElement("h4");
+                  var texto = document.createTextNode("Alumno Registrado");
+                  encabezado.appendChild(texto);
+                  document.body.appendChild(encabezado);
+          }
+          function cambiarColor() {
+                  var divs = document.getElementsByTagName("div");
+                  for (var i = 0; i < divs.length; i++) {
+                      divs[i].style.color = "red";
+                  }
+          }
+          function cambiarEstiloDiv () {
+                  document.getElementById('miDiv').style.backgroundColor = 'blue';
+                  document.getElementById('miDiv').style.color = 'yellow';
+                  document.getElementById('miDiv').style.width = '500px';
+                  document.getElementById('miDiv').style.height = '500px';
+                  document.getElementById('miDiv').style.fontSize = 'xx-large';
+                  document.getElementById('miDiv').style.fontFamily = 'Courier New';
+
+          }
+          function cambiarCss() {
+                  document.getElementById('titulos').style.backgroundColor = 'red';
+                  document.getElementById('jugador1').style.backgroundColor = 'blue';
+                  document.getElementById('jugador2').style.backgroundColor = 'blue';
+                  document.getElementById('jugador3').style.backgroundColor = 'blue';
+                  document.getElementById('jugador4').style.backgroundColor = 'blue';
+
+                  document.getElementById('jugador1').style.fontStyle = 'italic';
+                  document.getElementById('jugador2').style.fontStyle = 'italic';
+                  document.getElementById('jugador3').style.fontStyle = 'italic';
+                  document.getElementById('jugador4').style.fontStyle = 'italic';
+
+                  document.getElementById('jugador1').style.fontWeight = 'bold';
+                  document.getElementById('jugador2').style.fontWeight = 'bold';
+                  document.getElementById('jugador3').style.fontWeight = 'bold';
+                  document.getElementById('jugador4').style.fontWeight = 'bold';
+          }
+          function cambiarInput() {
+
+                  document.getElementById('miInput').style.backgroundColor = 'blue';
+                  document.getElementById('miInput').style.color = 'yellow';
+                  document.getElementById('miInput').style.width = '200px';
+                  document.getElementById('miInput').style.height = '80px';
+          }
+          function cambiarDiv() {
+                  document.getElementById('miDiv').style.backgroundColor = 'orange';
+                  document.getElementById('miDiv').style.color = 'white';
+                  document.getElementById('miDiv').style.width = '800px';
+                  document.getElementById('miDiv').style.height = '800px';
+                  document.getElementById('miDiv').style.fontSize = 'x-large';
+                
+          }
+          function cambiarParrafo() {
+                  document.getElementById('miParrafo').style.backgroundColor = 'green';
+                  document.getElementById('miParrafo').style.color = 'red';
+                  document.getElementById('miParrafo').style.fontSize = 'xx-large';
+          }
+    </script>
+  </head>
+  <body>
+    <form >
+      <div>
+        <h1 id="titulo">Registro de Estudiantes</h1>
+        Nombres: <input type="text" /><br>
+        Apellidos: <input type="text"  /><br>
+        Direccion: <input type="text" /><br>
+        Edad: <input type="text" /><br>
+        Fecha de Nacimiento: <input type="date" /><br>
+        Lugar de Nacimiento: <input type="text" /><br>
+        Estado Civil: <input type="text" /><br>
+      </div>
+      <div id="miDiv">Mi div !!!</div>
+      <table  border="1">
+        <tr id="titulos">
+            <th>Goleadores</th>
+            <th>Goles</th>
+        </tr>
+        <tr id="jugador1">
+            <td>James Rodirguez</td>
+            <td>6</td>
+        </tr>
+        <tr id="jugador2">
+            <td>Thomas Mueller</td>
+            <td>5</td>
+        </tr>
+        <tr id="jugador3">
+            <td>Neymar</td>
+            <td>4</td>
+        </tr>
+        <tr id="jugador4">
+            <td>Lionel Messi</td>
+            <td>4</td>
+        </tr>
+      </table>
+      <button type="button" onclick="cambiarCss()">Cambiar</button>
+      <button type="button"  onclick="cambiarEstiloDiv()">Cambiar</button>
+      <input type="button" onclick="crearElemento()" value="Registrar Alumno" />
+      <input  onclick="cambiarContenido()" type="button" value="Cambiar Titulo" />
+      <input type="button" onclick="cambiarColor()" value="Cambiar Color" />
+    </form>
+  </body>
+</html>

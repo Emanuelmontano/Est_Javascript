@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Mi primer parrafo</p>
+
+    <p>Mi segundo parrafo</p>
+
+    <p>Mi tercer parrafo</p>
+
+    <p>Mi cuarto parrafo</p>
+
+    <button onclick="cambiarColor()">Cambiar Color</button>
+
+    <script>
+
+    function cambiarColor() {
+        var listaNodos = document.getElementsByTagName("p");
+
+        for (var i = 0; i < listaNodos.length; i++) {
+            listaNodos[i].style.color = "orange";
+        }
+    }
+    </script>
+
+</body>
+
+</html>
