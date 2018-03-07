@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Objectos Literales</title>
+
+	<script src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+	<h1>Literales Numericos</h1>
+	<p id="numerico1"></p>
+	<p id="numerico2"></p>
+	<p id="numerico3"></p>
+	<h1>Literales de Cadena</h1>
+	<p id="cadena1"></p>
+	<p id="cadena2"></p>
+	<p id="cadena3"></p>
+	<h1>Literales de Expresion</h1>
+	<p id="expresion1"></p>
+	<p id="expresion2"></p>
+	<p id="expresion3"></p>
+	<h1>Literales de Función</h1>
+	<p id="funcion"></p>
+</body>
+<script>
+		$(document).ready(function(){
+			$("input").Clik(function(){
+				alert("Hola desde Jquery");
+			})
+		})
+	</script>
+<script>
+	document.getElementById("numerico1").innerHTML = 4343;
+	document.getElementById("numerico2").innerHTML = 23.4;
+	document.getElementById("numerico3").innerHTML = 556e2;
+	document.getElementById("cadena1").innerHTML = "Maria Perez";
+	document.getElementById("cadena2").innerHTML = 'Como estas?';
+	document.getElementById("cadena3").innerHTML = "hola?";
+	document.getElementById("expresion1").innerHTML = 3 +5;
+	document.getElementById("expresion2").innerHTML = 4 * 3;
+	document.getElementById("expresion3").innerHTML = 8 / 4 + 3;
+	
+	function miFuncion(){
+		document.getElementById("funcion").innerHTML = "Mi funcion !!";	
+	}
+
+	miFuncion();
+	var numero1 = "hola mundo";
+	var notas = [[4.5, 3.5],[4.5, 3.9],[4.5, 3.6]]
+	debugger;
+	console.log(numero1);
+	console.table(notas);
+</script>
+</html>
