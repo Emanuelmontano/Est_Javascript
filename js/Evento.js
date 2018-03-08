@@ -71,4 +71,139 @@
         });
         $(parrafo4).html(elementos);
     });
+
+    //Efecto hover()
+    $("li").filter(":odd").hide().end().filter(":even").hover(function(){
+        $(this).toggleClass("active").next().stop(true,true).slideToggle();
+    });
+    $("select").change(function(){
+        var fruta = "";
+        $("select option:selected").each(function(){
+            fruta += $(this).text() + "";
+            alert("Tu fruta preferida es "+fruta);
+        });
+    });
+    //Evento Manejadores()
+    $("#em_btn1").on("click", function(){
+        var mensaje = "<h2>Posicion div1</h2><br>";
+        var miDiv1 = $("#em_div1");
+        var posicion = miDiv1.position();
+        mensaje += "left" + posicion.left + ", top " + posicion.top + "";
+        $("#em_mensaje1") .html(mensaje);
+    });
+    $("#em_btn2").on("click", function(){
+        var mensaje = "<h2>Posicion div2</h2><br>";
+        var miDiv2 = $("#em_div2");
+        var posicion = miDiv2.position();
+        mensaje += "left" + posicion.left + ", top " + posicion.top + "";
+        $("#em_mensaje2") .html(mensaje);
+    });
+    $("#em_div1").on("mouseenter", function(){
+        var miDiv1 = $("#em_div1");
+        miDiv1.height(200);
+        miDiv1.width(200);
+    });
+    $("#em_div2").on("mouseenter", function(){
+        var miDiv2 = $("#em_div2");
+        miDiv2.height(200);
+        miDiv2.width(200);
+    });
+    $("#em_div1").on("mouseout", function(){
+        var miDiv1 = $("#em_div1");
+        miDiv1.height(100);
+        miDiv1.width(100);
+    });
+    $("#em_div2").on("mouseout", function(){
+        var miDiv2 = $("#em_div2");
+        miDiv2.height(100);
+        miDiv2.width(100);
+    });
+    $(document).mousemove(function(event){
+        $("#cpm_parrafo").text("La posicion del mouse es: X = " + event.pageX + " , Y = " + event.pageY);
+    });
+    $("#cpm_enlace").click(function(event) {
+        event.preventDefault();
+    });
+    $("div").delegate(".parrafo", "click",function(){
+        $(".parrafo2").css("background-color", "pink");
+        $("#deg_parrafo").append("Este parrafo es nuevo y tiene el mismo evento");
+    });
+    $("#undeg_parrafo").click(function() {
+        $(".parrafo").undelegate();
+    });
+    //Eventos personalizados() 1
+    $(document).on("FrutasA", {
+        fruta: "Fresass"
+    }, function(event, arg1, arg2) {
+        $("#ep_mensaje").html(event.data.fruta+"<br>"+arg1+"<br>"+arg2);
+    });
+    $(document).trigger("FrutasA", ["Manzana",  "Pera"]);
+    //Eventos personalizados() 2
+    var clientes =[];
+    $("#ep1_btn1").click(function() {
+     registarCliente();
+     $(document).trigger( "descuento");
+    });
+    $( document ).on( "descuento", function( event, param1, param2 ) {
+        var totalCompra = parseFloat($("#cjtxt3").val());
+        var nombre = $("#cjtxt2").val();
+        if (totalCompra>50000) {
+          alert("El cliente "+nombre+" ganó bono de 10000 pesos!!")
+        }
+        limpiarCampos();
+        listarClientes();
+    });
+    function registarCliente() {
+        var id = $("#cjtxt1").val();
+        var nombre = $("#cjtxt2").val();
+        var totalCompra = parseFloat($("#cjtxt3").val());         
+        var cliente = {
+            id: id,
+            nombre: nombre,
+            totalCompra: totalCompra
+        }
+       clientes.push(cliente);
+       alert("Cliente Registrado!!");       
+    }
+    function listarClientes() {
+        var lista="<h1>Clientes</h1><br>";
+        var id = $("#cjtxt1").val();
+        var nombre = $("#cjtxt2").val();
+        var totalCompra = parseFloat($("#cjtxt3").val());
+        for (var i = 0; i < clientes.length; i++) {
+            console.log(clientes[i].nombre);
+            lista+="<b>Id:</b>"+clientes[i].id+"-"+"<b>Nombre:</b>"+clientes[i].nombre+"-"+"<b>Total Compra:</b>"+clientes[i].totalCompra+"<br>";
+        }
+        $("#ep1_clientes").html(lista);       
+    }
+    function limpiarCampos() {
+        $("#cjtxt1").val("");
+        $("#cjtxt2").val("");
+        $("#cjtxt3").val("");
+    }
+    //Ocúltame y muéstrame
+    $("#om_hide").click(function(){
+        $("#om_parrafo").hide();
+    });
+    $("#om_show").click(function(){
+        $("#om_parrafo").show();
+    });
+    //Animate()
+    $("#ate_animate").click(function(){
+        $("#ate_caja").animate({"left":"+=50px", "width":"+=5px"});
+    });
+    //Stop()
+    $("#stop_start").click(function(){
+        $("#stop_caja").animate({"width":"4000px"},10000);
+    });
+    $("#stop_stop").click(function(){
+        $("#stop_caja").stop();
+    });
+    $("#tg_btn").click(function(){
+        $("#tg").toggle("slow");
+    });
 });
+
+function mensaje(evento){
+    alert("Hola utilizando Eentos");
+}

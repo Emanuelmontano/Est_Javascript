@@ -1,0 +1,117 @@
+.ax-marquesina{
+	background-color:#313131;
+}
+.ax-marquee-title, .ax-marquee-date{
+	color:#fff;
+	font-weight:600;
+    font-size: 80%
+}
+li.marquee {
+    display:inline-block;
+    /* padding: 0 1%; */
+    width: 392px;
+    text-align:center;
+    white-space:nowrap;
+    position: relative;
+    color:#fff;
+    font-weight:600;
+}
+
+ul#ContenidoMarquesinaDos, ul#ContenidoMarquesinaUno {
+    position:relative;
+    display:block;
+    top:55%;
+    animation: marquee-animation 75s ease-in-out;
+    animation-iteration-count:infinite;
+    animation-play-state:running; 
+}
+ul#ContenidoMarquesinaDos:hover, ul#ContenidoMarquesinaUno:hover{
+	animation-play-state:paused;
+}
+.ax-marquesina {
+    overflow-x:hidden;
+}
+@keyframes marquee-animation{
+    from{
+            left:100%;
+    }
+    to{
+        left:-230%;
+    }
+}
+.ax-marquee-1{
+	margin-bottom:1%;
+}
+.ax-marquee-info {
+    position:relative ;
+    display:inline-block;
+    box-sizing:border-box;
+    width:17%;
+    padding-left:1%;
+    background-color:#313131;
+    z-index:3;
+}
+.ax-marquee-info h4{
+    position:relative;
+    display:inline-block;
+    box-sizing:border-box;
+}
+.ax-marquee-info span{
+    position:relative;
+    display:inline-block;
+    box-sizing:border-box;
+}
+.ax-marquee-items{
+	position:relative;
+	display:inline-block;
+	width:82%;
+	overflow-x:hidden;
+}
+.ax-marquesina{
+    padding:1% 0;
+    box-sizing:border-box;
+}
+/* Make it a marquee */
+/*.marquee {
+	color:white;
+    width: 900px;
+    height: 18px;
+    margin: 2 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 12s linear infinite;
+    
+}
+
+.marquee:hover {
+    animation-play-state: paused
+}*/
+
+/* Make it move */
+/*@keyframes marquee {
+  /*  0%   { text-indent: 110% }
+    100% { text-indent: 0% }
+}*/
+@media screen and (max-width:1000px){
+    .ax-marquee-info {
+    display:block;
+    width:90%;
+    position:relative;
+    margin:auto;
+}
+.ax-marquee-items {
+    width:90%;
+    position:relative;
+    margin:auto;
+    display: block;
+    padding: 1% 0;
+}
+@keyframes marquee-animation{
+    from{
+            left:100%;
+    }
+    to{
+        left:-670%;
+    }
+}

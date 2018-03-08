@@ -1,103 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="js/jquery-3.3.1.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $("#boton1").click(function() {
-            var div1 = $("div").get(0);
-            $(div1).html("<b>Mi primer div modificado!!</b>")
-            var div2 = $("div").get(1);
-            $(div2).html("<b>Mi segundo div modificado!!</b>")
-        });
-        $("#boton2").click(function() {
-            var div1 = $("div").get(0);
-            $(div1).css("backgroundColor", "orange");
-            var div2 = $("div").get(1);
-            $(div2).css("backgroundColor", "purple");
-        });
-        $("#boton3").click(function() {
-            $("#miDiv1").width("300px");
-            $("#miDiv1").height("300px");
-            $("#miDiv2").width("300px");
-            $("#miDiv2").height("300px");
-        });
-        $("#boton4").click(function() {
-            var divs = $("div");
-            divs.addClass("miEstilo");
-        });
-        $("#boton5").click(function() {
-            var divs = $("div");
-            divs.removeClass("miEstilo");
-        });
-        ///
-        var animales = ["Oso", "Tigre", "Aguila"];
-        var vehiculo1 = {
-            placa: "WER-454",
-            marca: "Toyota",
-            modelo: "2006"
-        };
-        var vehiculo2 = {
-            placa: "HSJ-098",
-            marca: "Mazda",
-            modelo: "2009"
-        };
-        $("#boton6").click(function() {
-            var elementos = "Elementos del arreglo animales:<br>";
-            var parrafo1 = $("#p1");
-            $.each(animales, function(indice, valor) {
-                elementos += "Indice es: " + indice + " su valor es: " + valor + "<br>";
-            });
-            $(parrafo1).html(elementos);
-        });
-        $("#boton7").click(function() {
-            var elementos = "Elementos del objeto vehiculo 1:<br>";
-            var parrafo2 = $("#p2");
-            $.each(vehiculo1, function(propiedad, valor) {
-                elementos += propiedad + " : " + valor + "<br>";
-            });
-            $(parrafo2).html(elementos);
-        });
-        $("#boton8").click(function() {
-            var elementos = "";
-            var parrafo3 = $("#p3");
-            if ($.inArray('Tigre', animales) !== -1) {
-                $(parrafo3).html("Tigre existe en el arreglo animales!!");
-            } else {
-                $(parrafo3).html("Tigre no existe en el arreglo animales!!");
-            }
-        });
-        $("#boton9").click(function() {
-            var elementos = "Propiedades del objeto vehiculo 1 cambiadas!:<br>";
-            var parrafo4 = $("#p4");
-            var vehiculo3 = $.extend(vehiculo1, vehiculo2);
-            $.each(vehiculo3, function(propiedad, valor) {
-                elementos += propiedad + " : " + valor + "<br>";
-            });
-            $(parrafo4).html(elementos);
-        });
-    });
-    </script>
-    <style>
-    .miEstilo {
-        font-size: large;
-        color: white;
-    }
-    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/Evento.js"></script>
+    <script type="text/javascript" src="js/marquesina.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/marquesina.css">
+
 </head>
 <body>
+    <div class="ax-home-marquee">
+        <div class="ax-center-container">       
+            <div class="ax-marquesina"> 
+                <div class="ax-marquee-container ax-marquee-1">
+                    <div class="ax-marquee-info">
+                        <h5 class="ax-marquee-title">Información TX1: </h5>
+                        <span class="ax-marquee-date" id="FechaTX1"></span>
+                    </div>
+                    <div class="ax-marquee-items">
+                        <ul id="ContenidoMarquesinaUno"></ul>
+                    </div>      
+                </div>      
+                <div class="ax-marquee-container ax-marquee-2">
+                    <div class="ax-marquee-info">
+                        <h5 class="ax-marquee-title">Información TX2: </h5>
+                        <span class="ax-marquee-date" id="FechaTX2"></span>
+                    </div>
+                    <div class="ax-marquee-items">
+                        <ul id="ContenidoMarquesinaDos"></ul>
+                    </div>      
+                </div>  
+            </div>
+        </div>
+    </div>
+    <HR>
+    <br>
+    <h1>Texto()</h1>
     <div id="miDiv1">
         Mi div 1!!!
     </div>
     <div id="miDiv2">
         Mi div 2!!!
     </div>
+    <br>
     <button id="boton1">Modificar textos</button>
     <button id="boton2">Modificar css</button>
     <button id="boton3">Modificar dimension</button>
     <button id="boton4">Agregar mi estilo</button>
     <button id="boton5">Remover mi estilo</button>
+    <HR>
     <br>
+    <h1>Objecto()</h1>
     <p id="p1">Arreglo animales</p>
     <p id="p2">Objeto vehiculo1</p>
     <p id="p3">Esta el tigre?</p>
@@ -106,5 +62,109 @@
     <button id="boton7">Mostrar Objeto Vehiculo 1</button>
     <button id="boton8">Existe Tigre?</button>
     <button id="boton9">Cambiar Propiedades</button>
+    <HR>
+    <br>
+    <h1>Efecto Hover()</h1>
+    <ul>
+        <li>Colombia</li>
+        <li>Bogotá</li>
+        <br>
+        <li>Estado Unidos</li>
+        <li>Washington</li>
+        <br>
+        <li>Mexico</li>
+        <li>Ciudad de Mexico</li>
+        <br>
+        <li>Argentina</li>
+        <li>Buenos Aires</li>
+        <br>
+        <li>Brasil</li>
+        <li>Brasilia</li>
+    </ul>
+    <HR>
+    <br>
+    <h1>Evento change()</h1>
+    <select name="Frutas" multiple>
+        <option value="">Fresa</option>
+        <option value="">Mango</option>
+        <option value="">Uva</option>
+        <option value="">Sandia</option>
+        <option value="">Manzana</option>
+        <option value="">Pera</option>
+    </select>
+    <HR>
+    <br>
+    <h1>Evento Manejadores()</h1>
+    <div id="em_div1">Mi primer div1</div>
+    <div id="em_div2">Mi Segundo div2</div>
+    <p id="em_mensaje1"></p>
+    <p id="em_mensaje2"></p>
+    <button id="em_btn1">Mostrar posicion del div1</button>
+    <button id="em_btn2">Mostrar posicion del div2</button>
+    <HR>
+    <br>
+    <h1>capturando la posición del mouse ()</h1>
+    <h2>Page X - Page Y</h2>
+    <p id="cpm_parrafo"></p>
+    <a href="file:///E:/08-Emmanuel/Estudio/CursoNext/JavaScript/coreJQuery.html" id="cpm_enlace">Enlace</a>
+    <HR>
+    <br>
+    <h1>Delegate()</h1>
+    <p >Presiona el parrafo</p>
+    <div style="background-color:yellow;">
+        <p class="parrafo">This is a paragraph inside a div element.</p>
+    </div>
+    <p class="parrafo2" >This is a paragraph.</p>
+    <p id="deg_parrafo"></p> 
+    <HR>
+    <br>
+    <h1>unDelegate()</h1>
+    <p id="undeg_parrafo">Desvicular.</p>
+    <HR>
+    <br>
+    <h1>Eventos personalizados 1()</h1>
+    <p id="ep_mensaje"></p>
+    <HR>
+    <br>
+    <h1>Eventos personalizados 2()</h1>
+    <h1>Datos De Cliente</h1>
+    <label for="cjtxt1">Id</label>
+    <input type="text" id="cjtxt1"/>
+    <br>
+    <br>
+    <label for="cjtxt2">Nombre</label>
+    <input type="text" id="cjtxt2"/>
+    <br>
+    <br>
+    <label for="cjtxt3">Total Compra</label>
+    <input type="text" id="cjtxt3"/>
+    <br>
+    <br>
+    <input id="ep1_btn1" type="button" value="Registrar Cliente">
+    <p id="ep1_clientes"></p>
+    <HR>
+    <br>
+    <h1>Ocúltame y muéstrame()</h1>
+    <p id="om_parrafo">¡Hola Mundo!</p>
+    <input type="button" id="om_hide" value="Ocultar">
+    <input type="button" id="om_show" value="Mostrar">
+    <HR>
+    <br>
+    <h1>Animate()</h1>
+    <div id="ate_caja"></div><br><br><br>
+    <input type="button" id="ate_animate" value="Mover >>"> 
+    <HR>
+    <br>
+    <h1>Stop()</h1>
+    <div id="stop_caja"></div><br><br><br>
+    <input type="button" id="stop_start" value="Aumentar tamaño">
+    <input type="button" id="stop_stop" value="Para aumento"> 
+    <HR>
+    <br>
+    <h1>Toggle()</h1>
+    <input type="button" id="tg_btn" value="Toggle">
+    <div id="tg">
+        <p>Voy a ocultarme y luego mostrarme</p>
+    </div>
 </body>
 </html>
