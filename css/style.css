@@ -83,3 +83,35 @@ h1{
 	font-weight: bold;
 	font-size: 15px;
 }
+
+#cef_miDiv{
+	margin: 0 auto 0 auto;
+	width: 300px;
+	height: 100px;
+	background-color: red;
+	text-align: center;
+}
+
+#cef_miDiv1{
+	width: 200px;
+	height: 200px;
+	background-color: green;
+	font-size: 25px;
+	color: white;
+}
+
+#cef_miDiv2{
+	width: 200px;
+	height: 200px;
+	background-color: purple;
+	font-size: 30px;
+	color: white;
+}
+
+#cef_miDiv3{
+	width: 200px;
+	height: 200px;
+	background-color: orange;
+	font-size: 40px;
+	color: white;
+}

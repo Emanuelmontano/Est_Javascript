@@ -202,8 +202,76 @@
     $("#tg_btn").click(function(){
         $("#tg").toggle("slow");
     });
-});
+    $("#cef_btn").click(function(){
+        colaEfectos();
+    });
+    function colaEfectos(){
+        var miDiv = $("#cef_miDiv");
+        miDiv.queue(function(){
+            $(this).css({
+                "background-color": "blue",
+            });
+            $("#cef_mensaje").html("Se cambio el color del fondo a azul");
+            $(this).dequeue();
+        });
+        miDiv.hide(1000);
+        miDiv.show(1000);
+        miDiv.fadeIn(3000);
+        miDiv.fadeOut(3000);
+        miDiv.show(1000);
+    }
 
-function mensaje(evento){
-    alert("Hola utilizando Eentos");
-}
+    $("#cef_btn1").click(function(){
+        efectoDiv1();
+        efectoDiv2();
+        efectoDiv3();
+    });
+
+    $("#cef_btn2").click(function(){
+        jQuery.queue($("div")[0], "fx", []);
+        $("div").stop();
+    });
+
+    function numeroEfectos(){
+        setInterval(function(){
+            var numFuncionesEnCola = $("#cef_miDiv1").queue().length;
+            $("#cef_numeroEfectos").html("Numero Efectos en Cola: "+ numFuncionesEnCola);
+        }, 1000);
+    }
+    function efectoDiv1(){
+        $("#cef_miDiv1").show("fast").animate({
+            right:"+=400"
+        }, 1000).slideToggle(2000).slideToggle("fast").animate({
+            left:"-=400"
+        }, 200).hide("slow").show(2000).slideUp("normal", efectoDiv1);
+    }
+    function efectoDiv2(){
+        var miDiv2 = $("#cef_miDiv2");
+        miDiv2.queue(function(){
+            $(this).css({
+                "background-color": "grey",
+
+            });
+            $(this).queue();
+        });
+        miDiv2.hide(2000);
+        miDiv2.show(2000);
+        miDiv2.fadeIn(3000);
+        miDiv2.fadeOut(3000);
+        miDiv2.show(1000, efectoDiv2);
+    }
+
+    function efectoDiv3(){
+        var miDiv3 = $("#cef_miDiv3");
+        miDiv3.fadeIn(2000);
+        miDiv3.fadeOut(1000);
+        miDiv3.hide(2000);
+        miDiv3.show(1000);
+        miDiv3.slideToggle(1000, efectoDiv3);
+    }
+
+    numeroEfectos();
+
+
+
+});
