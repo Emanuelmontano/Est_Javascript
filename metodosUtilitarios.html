@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var array1 = [3, 1, 7, 4, 9, 0];
+        var array2 = [2, 6, 5, 8];
+        var parrafo1 = $("#p1");
+        var parrafo2 = $("#p2");
+        var parrafo3 = $("#p3");
+        var parrafo4 = $("#p4");
+        var parrafo5 = $("#p5");
+        var jsonString = '{"nombre": "Carlos","apellido":"Vergara"}';
+        $("#boton1").click(function() {
+            limpiar();
+            var elementos1 = "Elementos del arreglo 1:<br>";
+            var elementos2 = "Elementos del arreglo 2:<br>";
+            $.each(array1, function(indice, valor) {
+                elementos1 += valor + "<br>";
+            });
+            $.each(array2, function(indice, valor) {
+                elementos2 += valor + "<br>";
+            });
+            $(parrafo1).html(elementos1);
+            $(parrafo2).html(elementos2);
+        });
+        $("#boton2").click(function() {
+            limpiar();
+            var elementos3 = "Elementos del arreglo 1 mas los del arreglo 2:<br>";
+            $.merge(array1, array2);
+            $.each(array1, function(indice, valor) {
+                elementos3 += valor + "<br>";
+            });
+            $(parrafo3).html(elementos3);
+        });
+        $("#boton3").click(function() {
+            limpiar();
+            var elementos4 = "Filtrar los  elementos del arreglo conbinado que  sean mayores que 4:<br>";
+            var filtro = $.grep(array1, function(value, i) {
+                return (value > 4);
+            });
+            $.each(filtro, function(indice, valor) {
+                elementos4 += valor + "<br>";
+            });
+            $(parrafo4).html(elementos4);
+        });
+        $("#boton4").click(function() {
+            limpiar();
+            var elementos5 = "Propiedades del objeto:<br>";
+            var objJS = $.parseJSON(jsonString);
+            $.each(objJS, function(propiedad, valor) {
+                elementos5 += propiedad + " : " + valor + "<br>";
+            });
+            if ($.isEmptyObject(objJS)) {
+                elementos5 += "Es un objeto vacio!!";
+            } else {
+                elementos5 += "No es un objeto vacio!!";
+            }
+            $(parrafo5).html(elementos5);
+        });
+        function limpiar() {
+            $(parrafo1).html("");
+            $(parrafo2).html("");
+            $(parrafo3).html("");
+            $(parrafo4).html("");
+            $(parrafo5).html("");
+        }
+    });
+    //Parse JSOM()
+    $(document).ready(function(){
+        var datos = '[{"Marca":"Ford"},{"Marca":"Chevrolet"},{"Marca":"Ferrari"},{"Marca":"Audi"},{"Marca":"Kia"}]';
+        var cadena = '';
+        var base_datos = $.parseJSON(datos);
+        $.each(base_datos, function(){
+            cadena += "<li>" + this['Marca'] + "<br>";
+        });
+        $('#autos').html(cadena);
+    });
+    //Parse XML()
+    $(document).ready(function(){
+        var base_datos = "<xml version='1.0'><estudiante> <codigo>001</codigo> <nombres>Pedro</nombres> <apellidos>Perez</apellidos> </estudiante></xml>";
+        var $xml = $(base_datos);
+
+        var codigo = $xml.find('codigo');
+        var nombres = $xml.find('nombres');
+        var apellidos = $xml.find('apellidos');
+
+        $('#codigo').html(codigo);
+        $('#nombres').html(nombres);
+        $('#apellidos').html(apellidos);
+    });
+    </script>
+</head>
+<body>
+    <button id="boton1">Mostar Arreglos</button>
+    <button id="boton2">Combinar Arreglos</button>
+    <button id="boton3">Filtrar elementos</button>
+    <button id="boton4">Convertir JSON</button>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <HR>
+    <br>
+    <h1>Parse JSOM()</h1>
+    <h3>Marca de Autos</h3>
+        <span id="autos"></span>
+    <HR>
+    <br>    
+    <h1>Parse XML()</h1>
+    <h3>Datos de Estudiante:</h3>
+        <span id="codigo"></span>
+        <span id="nombres"></span>
+        <span id="apellidos"></span>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-US">
+<head>
+	<title>TABLEIZER! | Spreadsheets to HTML Tables Tool</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript">
+		//Selects entire textarea.
+		function SelectAll(id) {
+				document.getElementById(id).focus();
+				document.getElementById(id).select();
+		}
+	</script>			
+</head>
+<body>
+	<div id="header">
+		<h1 id="site-name">TABLEIZER!</h1>
+		<h2 id="site-label">A Quick Spreadsheets-to-HTML &lt;Table&gt; Tool</h2>
+	</div>	
+	<div id="container">		
+		<form action="tableizer.php" method="post">
+			<p class="site-instruction">Paste your cells from Excel, Google Docs or another spreadsheet here:</p>
+			<textarea rows="11" cols="60" name="inputText" id="table-code-input" title="Paste cells from a spreadsheet here"></textarea>
+			<p class="options-label">Table Style Options</p>
+			<div id="table-options">
+				<div class="options-item">
+					<label for="no-css" class="table-options-label">No CSS: </label>
+					<input id="no-css" type="checkbox" name="nocss" value="Yes"  />
+				</div>
+				<div class="options-item">
+					<label for="table-font-size" class="table-options-label">Font Size: </label> 
+					<select id="table-font-size" name="tableFontSize">
+						<option value="12px">12px</option>
+						<option value="7px">7px</option>
+						<option value="8px">8px</option>
+						<option value="9px">9px</option>
+						<option value="10px">10px</option>
+						<option value="11px">11px</option>
+						<option value="12px">12px</option>
+						<option value="13px">13px</option>
+						<option value="14px">14px</option>
+						<option value="15px">15px</option>
+						<option value="16px">16px</option>
+						<option value="18px">18px</option>
+						<option value="20px">20px</option>
+						<option value="22px">22px</option>
+						<option value="24px">24px</option>
+						<option value="26px">26px</option>
+						<option value="28px">28px</option>
+						<option value="36px">36px</option>
+						<option value="48px">48px</option>
+						<option value="72px">72px</option>
+					</select>
+				</div>
+				<div class="options-item"><!-- BEGIN COLOR PICKER -->
+					<label for="header-color" class="table-options-label">Header Color: </label>
+					<input id="header-color" class="jscolor" name="headerColor" value="104E8B">
+				</div><!-- END COLOR PICKER -->
+				<div class="options-item">					
+					<input type="hidden" name="font" value="1" />
+					<label for="table-font" class="table-options-label">Font:</label> 			
+					<select id="table-font" name="tableFont">
+						<option value="Arial, Helvetica, sans-serif">Arial,Helvetica,sans-serif</option>
+						<option value="Arial, Helvetica, sans-serif">Arial,Helvetica,sans-serif</option>
+						<option value="Helvetica, Arial, sans-serif">Helvetica,Arial,serif</option>
+						<option value="Georgia, serif">Georgia,serif</option>
+						<option value="Times New Roman, Times, serif">Times New Roman,Times,serif</option>
+						<option value="Courier New, Courier, monospace">Courier New,Courier,monospace</option>
+						<option value="Lucida Console, Monaco, monospace">Lucida Console,Monaco,monospace</option>
+						<option value="Lucida Sans Unicode, Lucida Grande, sans-serif">Lucida Sans,Lucida Grande,sans-serif</option>
+						<option value="Palatino Linotype, Book Antiqua, Palatino, serif">Palatino Lino,Book Antiq,Palatino,serif</option>
+						<option value="Tahoma, Geneva, sans-serif">Tahoma,Geneva,sans-serif</option>
+						<option value="Trebuchet MS, Helvetica, sans-serif">Trebuchet MS,Helvetica,sans-serif</option>
+						<option value="Verdana, Geneva, sans-serif">Verdana,Geneva,sans-serif</option>
+					</select>
+				</div>
+				
+			</div>
+			<div class="options-buttons-area">
+				<input class="options-button" value="Tableize It!" type="submit" />
+				<input class="options-button" value="Reset" type="reset" />	
+			</div>
+		</form>
+		
+		<div class="ad-unit">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- Tableizer Responsive - Home Page -->
+			<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-7932050359867089"
+				 data-ad-slot="5937817505"
+				 data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+		
+			
+	<!-- Prevents tab from leaving textarea -->
+	<script type="text/javascript">
+	document.querySelector("textarea").addEventListener('keydown',function(e) {
+		if(e.keyCode === 9) { // tab was pressed
+			// get caret position/selection
+			var start = this.selectionStart;
+			var end = this.selectionEnd;
+
+			var target = e.target;
+			var value = target.value;
+
+			// set textarea value to: text before caret + tab + text after caret
+			target.value = value.substring(0, start)
+						+ "\t"
+						+ value.substring(end);
+
+			// put caret at right position again (add one for the tab)
+			this.selectionStart = this.selectionEnd = start + 1;
+
+			// prevent the focus lose
+			e.preventDefault();
+		}
+	},false);
+	</script>
+		
+		
+			<div id="footer">
+		<p>Like Tableizer? Help save kids' lives with a donation to <a href="https://shop.stjude.org/GiftCatalog/donation.do?cID=14262&pID=24671" rel="nofollow">St. Jude's Children's Research Hospital</a>.</p>
+		
+		<p>Tableizer! by <a href="https://twitter.com/dannysanchez">Danny Sanchez</a>, 2018.</p>
+		
+		<p><a href="faq.php">Read the Tableizer FAQ</a> or <a href="contact.php">contact me here</a>.</p>
+	</div>
+	<!-- GOOGLE ANALYTICS -->	
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+		var pageTracker = _gat._getTracker("UA-611050-3");
+		pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+	<!-- END GOOGLE ANALYTICS -->
+	</div>
+	<!-- COLOR PICKER SCRIPT -->
+	<script src="js/jscolor.min.js"></script>
+</body>
+</html>

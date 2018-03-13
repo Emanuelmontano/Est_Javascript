@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		table.tableizer-table {
+			font-size: 12px;
+			border: 1px solid #CCC; 
+			font-family: Arial, Helvetica, sans-serif;
+		} 
+		.tableizer-table td {
+			padding: 4px;
+			margin: 3px;
+			border: 1px solid #CCC;
+		}
+		.tableizer-table th {
+			background-color: #104E8B; 
+			color: #FFF;
+			font-weight: bold;
+		}
+	</style>
+	<script type="text/javascript">
+		document.querySelector("textarea").addEventListener('keydown',function(e) {
+			if(e.keyCode === 9) { // tab was pressed
+				// get caret position/selection
+				var start = this.selectionStart;
+				var end = this.selectionEnd;
+
+				var target = e.target;
+				var value = target.value;
+
+				// set textarea value to: text before caret + tab + text after caret
+				target.value = value.substring(0, start)
+							+ "\t"
+							+ value.substring(end);
+
+				// put caret at right position again (add one for the tab)
+				this.selectionStart = this.selectionEnd = start + 1;
+
+				// prevent the focus lose
+				e.preventDefault();
+			}
+		},false);
+	</script>
+</head>
+<body>	
+	<textarea rows="11" cols="60" name="inputText" id="table-code-input" title="Paste cells from a spreadsheet here"></textarea>
+	<div class="options-buttons-area">
+		<input class="options-button" value="Tableize It!" type="submit" />
+		<input class="options-button" value="Reset" type="reset" />	
+	</div>
+	<table class="tableizer-table">
+		<thead>
+			 <tr class="tableizer-firstrow"><th>Agente</th><th>Tipo</th><th>Valor a pagar ($)</th></tr>
+		</thead>
+		<tbody>
+		 	 <tr><td>CCOC</td><td>C</td><td>672,535</td></tr>
+		 	 <tr><td>CEOC</td><td>C</td><td>101,192</td></tr>
+			 <tr><td>DCLC</td><td>C</td><td>733,102</td></tr>
+			 <tr><td>EDIC</td><td>C</td><td>236,711,560</td></tr>
+			 <tr><td>EMIC</td><td>C</td><td>855,447</td></tr>
+			 <tr><td>ENDC</td><td>C</td><td>10,295,268</td></tr>
+			 <tr><td>EPMC</td><td>C</td><td>3,992,654</td></tr>
+			 <tr><td>EPSC</td><td>C</td><td>575,839</td></tr>
+			 <tr><td>ETTC</td><td>C</td><td>254,136</td></tr>
+			 <tr><td>GECC</td><td>C</td><td>83,576</td></tr>
+			 <tr><td>GNCC</td><td>C</td><td>3,308,383</td></tr>
+			 <tr><td>HLAC</td><td>C</td><td>34,579</td></tr>
+			 <tr><td>ISGC</td><td>C</td><td>5,037,137</td></tr>
+			 <tr><td>ITLC</td><td>C</td><td>360,653</td></tr>
+			 <tr><td>PEEC</td><td>C</td><td>18,146</td></tr>
+			 <tr><td>RTAC</td><td>C</td><td>47,862</td></tr>
+			 <tr><td>TPLC</td><td>C</td><td>335,165</td></tr>
+			 <tr><td>Subtotal</td><td>&nbsp;</td><td>263,417,234</td></tr>
+			 <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			 <tr><td>Total General</td><td>&nbsp;</td><td>263,417,234</td></tr>
+		</tbody>
+	</table>
+</body>
+</html>

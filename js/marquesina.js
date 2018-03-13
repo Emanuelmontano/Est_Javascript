@@ -10,6 +10,7 @@ function RecuperarinformacionServicioTX1() {
 	$.when(getData("https://serviciosfacturacion.xm.com.co/XM.Portal.Indicadores/api/Transacciones/InformacionPreliminarTX1")).done(function( data, textStatus, jqXHR ) {
     		tx1 = data;
     		MarquesinaUno();
+    		xm1();
 	}).fail(function(jqxhr, settings, exception ){
 		var li = "<li class='marquee'>No hay datos de consulta</li>"
 		$('#ContenidoMarquesinaUno').append(li);
@@ -29,6 +30,42 @@ function RecuperarinformacionServicioTX2(callback) {
 	
 	});
 }
+
+function xm1 (){
+	console.log("entro en xm1");
+	if(tx1.Indicadores.length > 0){
+		moment.locale(); 
+		var fecha = moment(tx1.Fecha).format('LL');
+		$('#FTX1').append(fecha);	
+		var tabla = '<table border="0" cellspacing="5" cellpadding="2"><tbody>';
+		$.each(tx1.Indicadores,function(i,v){
+				var estado = '';
+				var nombre = '';
+				var valor  = '';
+				var unidad = '';
+				if(v.ValorActual > v.ValorAnterior){
+					estado = 'src="http://www.xm.com.co/Style Library/Images/greenArrow.png"';
+				}else if(v.ValorActual == v.ValorAnterior){
+					estado = 'src="http://www.xm.com.co/Style Library/Images/yellowArrow.png"';
+				}else{
+					estado =  'src="http://www.xm.com.co/Style Library/Images/redArrow.png"';
+				}				
+				nombre  = v.Nombre;
+				valor   = v.ValorActual.toFixed(2);
+				unidad  = v.UnidadMedida
+				tabla += '<tr><td style="font-family: Helvetica; font-size: 9pt; text-align: left;">'+nombre+'</td>';
+				tabla += '<td style="font-family: Helvetica; font-size: 9pt;"><img ' + estado + '/></td>';
+				tabla += '<td style="font-family: Helvetica; font-size: 9pt; text-align: center;">';
+				tabla += '<p>'+valor+'<span style="font-size: 9pt; line-height: 1.3em;">'+unidad+'</span></p></td></tr>';
+			});	
+		tabla += '</tbody></table>';
+		$('#ContenidoXM1').append(tabla);	
+	}else{
+		var li = "<li class='marquee'>Cargando datos...</li>"
+		$('#ContenidoXM1').append(li);
+	}
+
+};
 
 function MarquesinaUno (){
 	console.log("entro en MarquesinaUno");

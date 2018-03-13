@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#boton1").click(function() {
+            var nombre = $("#nombre").val();
+            var apellido = $("#apellido").val();
+            var id = $("#id").val();
+            var estduiante = {
+                id: id,
+                nombre: nombre,
+                apellido: apellido
+            };
+            localStorage.setItem(id, JSON.stringify(estduiante));
+            listarEstudiantes();
+            $("#nombre").val("");
+            $("#apellido").val("");
+            $("#id").val("");
+        });
+        function listarEstudiantes() {
+            var elementos = "Lista Estudiantes:<br>";
+            var parrafo1 = $("#p1");
+            for (var i = 0; i < localStorage.length; i++) {
+                var clave = localStorage.key(i);
+                var estdudiante = $.parseJSON(localStorage.getItem(clave));
+                elementos += estdudiante.id + "-" + estdudiante.nombre + "-" + estdudiante.apellido + "<br>";
+            }
+            $(parrafo1).html(elementos);
+        }
+        listarEstudiantes();
+    });
+    </script>
+</head>
+<body>
+    <h1>Registro de Estudiantes</h2>
+        <form>
+            Id:
+            <br>
+            <input type="text" id="id">
+            <br>Nombre:
+            <br>
+            <input type="text" id="nombre">
+            <br>Apellido:
+            <br>
+            <input type="text" id="apellido">
+        </form>
+        <button id="boton1">Registrar</button>
+        <p id="p1"></p>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#agregarcarro').click(function(event){
+				event.preventDefault();
+				var nombrecarro= $('#nombre').val();
+				var valorcarro= $('#valor').val();
+				$('<option/>').attr('value',valorcarro).text(nombrecarro).appendTo('#carros');
+			});
+			$('#quitarcarro').click(function(event){
+				event.preventDefault();
+				var $select = $('#carros');
+				$('option:selected',$select).remove();
+			});
+		});
+		//Formulario
+		$(document).ready(function(){
+			$("p").focusin(function(){
+				$(this).find("span").css("display", "inline").fadeOut(2000);
+				$(this).find("span").css("color", "red");
+			});
+		});
+		$("#button").click(function(){
+			alert("Informacion Guardada");
+		});
+		$(document).ready(function(){
+			////Carros(2)
+			$("#carros2").change(function () {
+			    var carros2 = "Selecionados: ";
+			    $("#carros2 option:selected").each(function() {
+			      carros2 += $(this).text() + " - ";
+			    });
+			    $(".cr").text(carros2);
+			 }).change();
+		});
+	</script>
+	<style type="text/css">
+	  .carros2 {
+	    color: blue;
+	    font-size: 25px;
+	  }
+	  span{
+	  	display:none;
+	  }
+	  select{
+	  	height: 115px;
+	  }
+	</style>
+</head>
+<body>
+	<form>
+		<H3 for="carros">Manejando Elementos</H3>
+		<select id="carros" multiple="multiple"></select><br>
+		<button id="quitarcarro">Borrar Carro Seleccionado</button>
+		<p for="nuevoNombre">Nombre del Carro</p>
+		<input id="nombre" type="text" />
+		<p for="newColorValue">Precio del Carro</p>
+		<input id="valor" type="text" /><br>
+		<button id="agregarcarro">Añadir Carro</button>
+	</form>
+	<HR>
+    <br>
+	<h1>Formulario</h1>
+	<p>Nombre:<input type="text"><span>Ingrese su Nombre</span></p>
+	<p>Apellido:<input type="text"><span>Ingrese su Apellido</span></p>
+	<p>Edad:<input type="text"><span>Ingrese su Edad</span></p>
+	<p>Ciudad:<input type="text"><span>Ingrese su Ciudad</span></p>
+	<p>Fecha:<input type="date"><span>Ingrese su Fecha</span></p>	
+	<input id="button" type="button" type="submit" value="Enviar">
+	<HR>
+    <br>
+	<h1>Carros(2)</h1>
+	<select name="Carros" id="carros2" multiple="multiple">
+	  <option>Toyota</option>
+	  <option>Chevrolet</option>
+	  <option>Nissan</option>
+	  <option >Jeep</option>
+	  <option>Hyundai</option>
+	  <option>Ford</option>
+	  <option>Renault</option>
+	  <option>Ferrari</option>
+	  <option>Mazda</option>
+	  <option>Suzuki</option>
+	  <option>Mercedes</option>
+	  <option>BMW</option>
+	  <option>Audi</option>
+	  <option>Peugeot</option>
+	  <option>Fiat</option>
+	  <option>Daihatsu</option>
+	  <option>Mitsubishi</option>
+	  <option>Isuzu</option>	  
+	</select>
+	<div class="cr"></div>
+</body>
+</html>

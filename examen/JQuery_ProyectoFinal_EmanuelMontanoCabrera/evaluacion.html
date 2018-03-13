@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Evaluación Final</title>
+        <meta charset="UTF-8" http-equiv="Content-Type" content="text/html";>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="js/javascript.js"></script>
+
+    </head>
+    <body onload="event_onload()">
+      <div id="contenedor" align="center">
+        <div id="cabecera">
+          <h2>*** Bienvenido a Evaluación Final Java Script ***</h2>
+        </div>
+        <p>Bienvenido al Sistema de Notas de Next University</p>
+        <p>Información de Estudiantes</p>
+        <form method="get">
+            <b>Codigo</b>:<input type='text' id='id' disabled/> &nbsp;&nbsp; <b>Nombre *</b>: <input type='text' id='nombre' required minlength="3"/> &nbsp;&nbsp; <b>Nota *</b>:
+            <select id="nota" name="nota" required> 
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+        </form>
+        <p>Selecciona una opción del Menu</p>
+        <button type="botton" id="btn_Registrar">Registrar</button>
+        <button type="botton" id="btn_limpiar">limpiar</button>
+        <input type="button" value="Promedio Notas" id="operacion" onclick="event_Promedio()">
+        <input type="button" value="Menor Nota" id="operacion" onclick="event_MenorNota()">
+        <input type="button" value="Mayor Nota" id="operacion" onclick="event_MayorNota()">
+        <p id="p1"></p>
+        <h2>*** Listado de Estudiantes ***</h2>
+        <p id="p2"></p>
+      </div> 
+    </body>
+    <footer>
+      <p>Desarrollador: Emmanuel Montaño Cabrera</p>
+    </footer>
+</html>
