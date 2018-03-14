@@ -1,0 +1,63 @@
+#dw_Arrastrar{
+	position: absolute;
+	top: 45%;
+	left: 55%;
+	width: 100px;
+	height: 100px;
+	margin-left: -200px;
+	margin-top: -150px;
+	border: 1px solid #808080;
+	padding: 5px;
+}
+
+#dw_ArrastrarCursor{
+	position: absolute;
+	top: 70%;
+	left: 75%;
+	width: 50px;
+	height: 50px;
+	margin-left: -200px;
+	margin-top: -150px;
+	border: 1px solid #808080;
+	padding: 10px;
+	background-color: red;
+}
+
+#dw_Arrastrar3A{
+	position: absolute;
+	top: 95%;
+	left: 75%;
+	width: 50px;
+	height: 50px;
+	margin-left: -200px;
+	margin-top: -150px;
+	border: 1px solid #808080;
+	padding: 10px;
+	background-color: #FF9D3A;
+}
+
+#dw_Arrastrar3B{
+	position: absolute;
+	top: 95%;
+	left: 75%;
+	width: 50px;
+	height: 50px;
+	margin-left: -200px;
+	margin-top: -150px;
+	border: 1px solid #808080;
+	padding: 10px;
+	background-color: #3AFF5E;
+}
+
+#dwp_posicion{
+	position: absolute;
+	top: 120%;
+	left: 85%;
+	width: 50px;
+	height: 50px;
+	margin-left: -200px;
+	margin-top: -150px;
+	border: 1px solid #808080;
+	padding: 10px;
+	background-color: #FF473A;
+}
