@@ -65,3 +65,48 @@ $(document).ready(function() {
 		$("#dwp_mensaje").html(mensaje);
 	}
 });
+
+//Implementando el Droppable
+$(document).ready(function() {
+	$("#dp_arrastrar").draggable();
+	$("#dp_soltar").droppable({ 
+		drop: function(){
+			alert("!Has soltado el elemnto en la caja");
+		},
+		out: function() {
+	    	alert("¡Has sacado el elemento de la caja!");
+	    }
+	});
+});
+
+//Implementando el Resizable
+$( function() {
+	$("#dr_tamano").resizable();
+	$("#dr_miInput").resizable();
+} );
+
+//Implementando el Sortable
+$( function() {
+	var eventos = "";
+	$( "#sortable" ).sortable();
+	$( "#sortable" ).disableSelection();
+	$( "#SelectableSortable" ).selectable({
+		selected: function(event, ui){
+			var seleccionados = $("li[class$='ui-selected']").length;
+			$("#ss_ItemSelects").html("Has seleccionado el numero: " +seleccionados);
+			$("#ss_Eventos").html(eventos += "Evento selected !!!<br>");
+		},
+		unselected: function(event, ui){
+			$("#ss_Eventos").html(eventos += "Evento unselected !!!<br>");
+		},
+		start: function(e){
+			$("#ss_Eventos").html(eventos += "Evento start !!!<br>");
+		},
+		stop: function(){
+			$("#ss_Eventos").html(eventos += "Evento stop !!!<br>");
+		}
+	});
+
+	$( "#SelectableSortable" ).sortable();
+	$( "#SelectableSortable" ).disableSelection();
+} );

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="us">
+
+<head>
+    <meta charset="utf-8">
+    <link href="jquery-ui.css" rel="stylesheet">
+
+    <style>
+    #miLista1,
+    #miLista2,
+    #miLista3 {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        width: 200px;
+    }
+    #miLista1 li,
+    #miLista2 li,
+    #miLista3 li {
+        padding: 0.4em;
+        margin: 0 5px 5px 5px;
+        font-size: 20px;
+        height: 18px;
+        padding-left: 1.5em;
+    }
+    .equipo {
+        background: red;
+        color: #FFFFFF;
+        border: 1px solid #75C9FF;
+    }
+    .contenedorHijo {
+        width: 150px;
+    }
+    .contenedorPadre {
+        display: table-row-group;
+    }
+    </style>
+
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        var mensaje = "";
+
+        $("#miLista1").sortable({
+            start: function(event, ui) {
+                $("#mensaje").html(mensaje += "Evento start desde lista 1!<br>")
+            },
+            receive: function(event, ui) {
+                $("#mensaje").html(mensaje += "Evento receive desde lista 1!<br>")
+            },
+            stop: function(event, ui) {
+                $("#mensaje").html(mensaje += "Evento Stop desde lista 1!<br>")
+            }
+        });
+
+        $("#miLista2").sortable({
+            start: function(event, ui) {
+                $("#mensaje").html(mensaje += "Evento start desde lista 2!<br>")
+            },
+            receive: function(event, ui) {
+                $("#mensaje").html(mensaje += "Evento receive desde lista 2!<br>")
+            },
+            stop: function(event, ui) {
+                $("#mensaje").html(mensaje += "Evento Stop desde lista 2!<br>")
+            }
+        });
+
+
+        $("#miLista3").sortable({
+            start: function(event, ui) {
+                $("#mensaje").html(mensaje += "Evento start desde lista 3!<br>")
+            },
+            receive: function(event, ui) {
+                $("#mensaje").html(mensaje += "Evento receive desde lista 3!<br>")
+            },
+            stop: function(event, ui) {
+                $("#mensaje").html(mensaje += "Evento Stop desde lista 3!<br>")
+            }
+        });
+
+
+
+        $("#miLista2").sortable({
+            connectWith: "#miLista1, #miLista2,#miLista3"
+        });
+
+        $("#miLista3").sortable({
+            connectWith: "#miLista1, #miLista2,#miLista3"
+        });
+
+
+
+
+    });
+
+    </script>
+</head>
+
+<body>
+
+    <div class="contenedorPadre">
+        <div class="contenedorHijo">
+            <h2>Frutas</h2>
+            <ul id="miLista1">
+
+                <li class="equipo">Manzana</li>
+
+            </ul>
+        </div>
+        <div class="contenedorHijo">
+            <h2>Carros</h2>
+            <ul id="miLista2">
+
+                <li class="equipo">Toyota</li>
+            </ul>
+        </div>
+
+        <div class="contenedorHijo">
+            <h2>Elementos</h2>
+            <ul id="miLista3">
+
+                <li class="equipo">Maracuya</li>
+                <li class="equipo">Chevrolet</li>
+                <li class="equipo">Fresa </li>
+                <li class="equipo">Uva</li>
+                <li class="equipo">Hyundai</li>
+                <li class="equipo">Renault</li>
+                <li class="equipo">Mitsubishi</li>
+                <li class="equipo">Ford</li>
+                <li class="equipo">Mora</li>
+                <li class="equipo">Jeep</li>
+                <li class="equipo">Kia</li>
+                <li class="equipo">Nissan</li>
+                <li class="equipo">Tamarindo</li>
+                <li class="equipo">Guayaba</li>
+                <li class="equipo">Guanabana</li>
+                <li class="equipo">Sapote</li>
+
+
+
+            </ul>
+        </div>
+    </div>
+    <br/>
+    <p id="mensaje"></p>
+
+</body>
+
+</html>

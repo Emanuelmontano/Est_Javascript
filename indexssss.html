@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#ejemplo{
+			background-color: blue;
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+<div id="ejemplo"></div>
+<script type="text/javascript">
+	var ejemplo = document.getElementById('ejemplo')
+	document.getElementById('ejemplo').addEventListener("mouseover", function() {
+		ejemplo.style.backgroundColor = "red";
+	})
+	document.getElementById('ejemplo').addEventListener("mouseout", function() {
+		ejemplo.style.backgroundColor = "blue";
+	})
+</script>
+</body>
+</html>

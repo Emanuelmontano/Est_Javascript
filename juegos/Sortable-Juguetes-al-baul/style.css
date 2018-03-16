@@ -1,0 +1,26 @@
+ .posicion{
+ 	font-weight: bold;
+    font-size: 12px;
+    background-color: #CCCCCC;
+    width: 50px;
+ }
+li{
+  	background: #EAF789;
+	margin: 5px;
+	padding: 5px;
+	font-size: 15px;
+	height: 17px;
+	width: 100px;
+	border-radius: 25px;
+	text-align: center;
+	font-weight: bold;
+  }
+  #con-jug{
+  	background-color: #C6E100;
+  	width: 180px;
+  	height: 170px;
+  	border-radius: 10px;
+  }
+  ul{
+  	padding: 20px;
+  }
