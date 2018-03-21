@@ -30,3 +30,145 @@
 select, #rango{
 	width: 250px;
 }
+
+.acEstilo1{
+  background-color: red;
+  width: 200px;
+  height: 200px;
+}
+
+.acEstilo2{
+  background-color: yellow;
+  width: 50px;
+  height: 50px;
+}
+
+.acEstilo3{
+  font-style: oblique;
+  font-size: 50PX;
+  color: #10D3C0;
+}
+
+.acEstilo4{
+  background-color: #C416E7;
+  color: #E2EEF1;
+  width: 200px;
+  height: 50px;
+}
+
+.aEstilo1{
+  background-color: red;
+  border-top: groove;
+  width: 200px;
+  height: 200px; 
+}
+
+.aEstilo2{
+  background-color: blue;
+  border-top-style: solid;
+  width: 200px;
+  height: 200px; 
+}
+
+.ebEstilo1{
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+}
+.ebEstilo2 {
+    background-color: orange;
+    width: 300px;
+    height: 300px;
+}
+
+.effEstilo {
+    background-color: red;
+    width: 200px;
+    height: 200px;
+}
+
+.moEstilo1 {
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+}
+
+.scEstilo1{
+  background-color: #C52FD9;
+  border-top: groove;
+  width: 200px;
+  height: 200px; 
+}
+
+.scEstilo2{
+  background-color: red;
+  color: #fff;
+  font-size: xx-large;
+  border-top: groove;
+  width: 400px;
+  height: 400px; 
+}
+
+.scEstilo3 {
+    background-color: #C52FD9;
+    width: 200px;
+    height: 200px;
+}
+.scEstilo4 {
+    background-color: #3CE55B;
+    color: #fff;
+    font-size: xx-large;
+    width: 400px;
+    height: 400px;
+}
+
+.tcEstilo1 {
+    background-color: #C52FD9;
+    width: 300px;
+    height: 300px;
+}
+
+.tcEstilo2 {
+    background-color: #E7FF08;
+    width: 100px;
+    height: 100px;
+}
+
+.tcEstilo3 {
+    background-color: #FF6708;
+    color:#fff;
+    width: 300px;
+    height: 300px;
+}
+
+#tcDiv1 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #5AFF00;
+}
+
+
+#tcDiv2 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #2200FF;
+}
+
+
+#tcDiv3 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #FFAB00;
+}
+
+#tcelementoObjetivo {
+    background: #050505;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 100px;
+    top: 50px;
+}
