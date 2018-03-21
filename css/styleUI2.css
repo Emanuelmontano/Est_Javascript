@@ -148,14 +148,12 @@ select, #rango{
     background: #5AFF00;
 }
 
-
 #tcDiv2 {
     position: absolute;
     width: 50px;
     height: 50px;
     background: #2200FF;
 }
-
 
 #tcDiv3 {
     position: absolute;
@@ -165,6 +163,36 @@ select, #rango{
 }
 
 #tcelementoObjetivo {
+    background: #050505;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 100px;
+    top: 50px;
+}
+
+#tcDiv4 {
+    position: absolute;
+    width: 200px;
+    height: 10px;
+    background: #5AFF00;
+}
+
+#tcDiv5 {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: #2200FF;
+}
+
+#tcDiv6 {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: #FFAB00;
+}
+
+#tcelementoObjetivo1 {
     background: #050505;
     position: absolute;
     width: 300px;

@@ -363,4 +363,22 @@ $(document).ready(function() {
         at: "center",
         of: "#tcelementoObjetivo",
     });
+
+    $("#tcDiv4").position({
+        my: "left",
+        at: "right",
+        of: "#tcelementoObjetivo1"
+    });
+
+    $("#tcDiv5").position({
+        my: "bottom",
+        at: "top",
+        of: "#tcelementoObjetivo1",
+    });
+
+    $("#tcDiv6").position({
+        my: "right",
+        at: "left",
+        of: "#tcelementoObjetivo1",
+    });
 });
