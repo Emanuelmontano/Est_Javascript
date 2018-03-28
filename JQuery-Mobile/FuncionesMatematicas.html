@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"  content="width = device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.4.css">
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery.mobile-1.4.4.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#btnSeno").click(function() {
+            var numero = parseFloat($("#numero").val());
+            var resultado=Math.sin(numero);
+            $("#resultado").html("El resultado del seno es: "+resultado);
+            $('#popupDialogoResultado').popup('open');
+        });
+     $("#btnCoseno").click(function() {
+            var numero = parseFloat($("#numero").val());
+            var resultado=Math.cos(numero);
+            $("#resultado").html("El resultado del coseno es: "+resultado);
+            $('#popupDialogoResultado').popup('open');
+        });
+   $("#btnTangente").click(function() {
+            var numero = parseFloat($("#numero").val());
+            var resultado=Math.tan(numero);
+            $("#resultado").html("El resultado de la tangente es: "+resultado);
+            $('#popupDialogoResultado').popup('open');
+        });
+    })
+    </script>
+</head>
+<body>
+  <div data-role="page" id="paginaFunciones">
+      <div data-role="header">
+          <h1>Funciones Matemáticas</h1>
+      </div>
+      <div data-role="content">
+          <form>
+              <div class="ui-field-contain">
+                  <label for="numero">Numero:</label>
+                  <input type="text" name="numero" id="numero">
+              </div>
+              <a id="btnSeno" class="ui-btn">Seno</a>
+              <a id="btnCoseno" class="ui-btn">Coseno</a>
+              <a id="btnTangente" class="ui-btn">Tangente</a>
+          </form>
+      </div>
+      <div data-role="footer">
+          <p align="center">Funciones Matemáticas</p>
+      </div>
+      <div data-role="popup" id="popupDialogoResultado" data-dismissible="false"   style="width:300px;">
+          <div data-role="header">
+          <h1>Resultado</h1>
+          </div>
+          <div role="main" class="ui-content">
+              <h3 id="resultado"></h3>
+              <a href="#" class="ui-btn" data-rel="back">Ok</a>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

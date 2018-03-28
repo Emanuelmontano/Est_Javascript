@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"  content="width = device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.4.css">
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery.mobile-1.4.4.js"></script>
+    <script type="text/javascript">
+    function cambiarPagina(page) {
+        $.mobile.changePage("#" + page, {
+            transition: "flow"
+        });
+    }
+    $(document).ready(function() {
+        $(document).on("pagebeforechange", function(event, data) {
+            if (typeof data.toPage == "string") {
+                var page = $.mobile.activePage.attr('id');
+               if (page=="paginaPaso1") {
+                  if ( $("#id").val().trim().length==0 || $("#nombre").val().trim().length==0 ) {
+                      $("#paginaPaso1").css({
+                    "background-color": "#FF3145"
+                });
+                      alert("Por Favor rellene los campos!!");
+                     return false;
+                  }else{
+                $("#paginaPaso1").css({
+                    "background-color": "#f9f9f9"
+                });
+                  }
+               }
+                if (page=="paginaPaso2") {
+                    if ( $("#direccion").val().trim().length==0 || $("#telefono").val().trim().length==0 ) {
+                        $("#paginaPaso2").css({
+                            "background-color": "#FF3145"
+                        });
+                        alert("Por Favor rellene los campos!!");
+                        return false;
+                    }else{
+                        $("#paginaPaso2").css({
+                            "background-color": "#f9f9f9"
+                        });
+                    }
+                }
+                if (page=="paginaPaso3") {
+                  if ( $("#ciudad").val().trim().length==0 || $("#email").val().trim().length==0 ) {
+                      $("#paginaPaso3").css({
+                          "background-color": "#FF3145"
+                      });
+                      alert("Por Favor rellene los campos!!");
+                      return false;
+                  }else{
+                      $("#paginaPaso3").css({
+                          "background-color": "#f9f9f9"
+                      });
+                  }
+                }
+           }
+        });
+        $(document).on("pagechange", function(event, data) {
+                  var page = $.mobile.activePage.attr('id');
+                  if (page=="paginaRegistroExito") {
+                      $("#paginaRegistroExito").css({
+                          "background-color": "#00F75F",
+                           "color": "#fff",
+                      });
+                      var mensaje="Inscripción exitosa!!:<br>";
+                      mensaje+="Id:"+$("#id").val()+"<br>";
+                      mensaje+="Nombre:"+$("#nombre").val()+"<br>";
+                      mensaje+="Telefono:"+$("#telefono").val()+"<br>";
+                      mensaje+="Direccion:"+$("#direccion").val()+"<br>";
+                      mensaje+="Ciudad:"+$("#ciudad").val()+"<br>";
+                      mensaje+="E-mail:"+$("#email").val()+"<br>";
+                      $("#mensajeExito").html(mensaje)
+                 }
+        });
+        $("#btnPaso1").click(function() {
+            cambiarPagina("paginaPaso2");
+        });
+        $("#btnPaso2").click(function() {
+            cambiarPagina("paginaPaso3");
+        });
+        $("#btnPaso3").click(function() {
+            cambiarPagina("paginaRegistroExito");
+        });
+    });
+    </script>
+</head>
+<body>
+  <div data-role="page" id="paginaPaso1">
+      <div data-role="header">
+          <h1>Inscripción</h1>
+      </div>
+      <div data-role="content">
+          <form>
+              <div class="ui-field-contain">
+                  <label for="id">Id:</label>
+                  <input type="text" name="id" id="id">
+              </div>
+              <div class="ui-field-contain">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" name="nombre" id="nombre">
+              </div>
+              <a id="btnPaso1" class="ui-btn">Siguiente</a>
+          </form>
+      </div>
+      <div data-role="footer">
+          <p align="center">Paso 1</p>
+      </div>
+  </div>
+  <div data-role="page" id="paginaPaso2">
+      <div data-role="header">
+          <h1>Inscripción</h1>
+      </div>
+      <div data-role="content">
+          <form>
+              <div class="ui-field-contain">
+                  <label for="direccion">Direccion:</label>
+                  <input type="text" name="direccion" id="direccion">
+              </div>
+              <div class="ui-field-contain">
+                  <label for="telefono">Telefono:</label>
+                  <input type="text" name="telefono" id="telefono">
+              </div>
+              <a id="btnPaso2" class="ui-btn">Siguiente</a>
+          </form>
+      </div>
+      <div data-role="footer">
+          <p align="center">Paso 2</p>
+      </div>
+  </div>
+  <div data-role="page" id="paginaPaso3">
+      <div data-role="header">
+          <h1>Inscripción</h1>
+      </div>
+      <div data-role="content">
+          <form>
+              <div class="ui-field-contain">
+                  <label for="ciudad">Ciudad:</label>
+                  <input type="text" name="ciudad" id="ciudad">
+              </div>
+              <div class="ui-field-contain">
+                  <label for="email">E-mail:</label>
+                  <input type="text" name="email" id="email">
+              </div>
+              <a id="btnPaso3" class="ui-btn">Siguiente</a>
+          </form>
+      </div>
+      <div data-role="footer">
+          <p align="center">Paso 3</p>
+      </div>
+  </div>
+  <div data-role="page" id="paginaRegistroExito">
+      <div data-role="header">
+          <h1>Inscripción</h1>
+      </div>
+      <div data-role="content">
+          <h2 id="mensajeExito"></h1>
+      </div>
+  </div>
+</body>
+</html>

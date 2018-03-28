@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"  content="width = device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.4.css">
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery.mobile-1.4.4.js"></script>
+    <script type="text/javascript">
+    function cambiarPagina(page) {
+        $.mobile.changePage("#" + page, {
+            transition: "none"
+        });
+    }
+    $(document).ready(function() {
+        var notas = [];
+        var contadorId = 1;
+        $("#id").val(contadorId);
+        $("#btnNuevaNota").click(function() {
+            cambiarPagina("paginaNuevaNota");
+        });
+        $("#btnGuardarNota").click(function() {
+            var id = contadorId;
+            var titulo = $("#titulo").val();
+            var descripcion = $("#descripcion").val();
+            var nota = {
+                id: id,
+                titulo: titulo,
+                descripcion: descripcion
+            }
+            notas.push(nota);
+            alert("Nota resgistrada existosamente!!");
+            limpiarCampos();
+            contadorId++;
+            $("#id").val(contadorId);
+        });
+        $("#btnListarNotas").click(function() {
+            $('#listaNotas').empty();
+            for (var i = 0; i < notas.length; i++) {
+                var nota = "";
+                nota += '<a href="#" class="ui-btn">';
+                nota += '<h3>' +notas[i].id+" - "+ notas[i].titulo + '</h3>';
+                nota += '<p>' + notas[i].descripcion + '</p>';
+                nota += '</a>';
+                var item = "<li>" + nota + "</li>";
+                $("#listaNotas").append(item);
+            }
+            cambiarPagina("paginaListaNotas");
+            $('#listaNotas').listview('refresh');
+        });
+        $("#btnLimpiar").click(function() {
+            limpiarCampos();
+        });
+        function limpiarCampos() {
+            $("#titulo").val("");
+            $("#descripcion").val("");
+        }
+    })
+    </script>
+</head>
+<body>
+  <div data-role="page" id="paginaNuevaNota">
+      <div data-role="header">
+          <h1>Mis notas</h1>
+      </div>
+      <div data-role="navbar">
+          <ul>
+              <li><a class="ui-btn-active ui-state-persist" href="#">Nueva Nota</a>
+              </li>
+              <li><a id="btnListarNotas">Lista Notas</a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="content">
+          <form>
+              <div class="ui-field-contain">
+                  <label for="id">Id:</label>
+                  <input type="text" name="id" id="id" disabled>
+                  <label for="titulo">Titulo:</label>
+                  <input type="text" name="titulo" id="titulo">
+                  <label for="descripcion">Descripcion:</label>
+                  <textarea cols="30" rows="30" name="descripcion" id="descripcion"></textarea>
+              </div>
+              <a id="btnGuardarNota" class="ui-btn">Guardar </a>
+              <a id="btnLimpiar" class="ui-btn">Limpiar </a>
+          </form>
+      </div>
+  </div>
+  <div data-role="page" id="paginaListaNotas">
+      <div data-role="header">
+          <h1>Mis notas</h1>
+      </div>
+      <div data-role="navbar">
+          <ul>
+              <li><a id="btnNuevaNota">Nueva Nota</a>
+              </li>
+              <li><a class="ui-btn-active ui-state-persist" href="#">Lista Notas</a>
+              </li>
+          </ul>
+      </div>
+      <div data-role="content">
+          <ul data-role="listview" id="listaNotas"  data-inset="true">
+          </ul>
+      </div>
+  </div>
+</body>
+</html>

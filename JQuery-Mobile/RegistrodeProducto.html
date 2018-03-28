@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"  content="width = device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.4.css">
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery.mobile-1.4.4.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#boton1").click(function() {
+            var codigo = $("#codigo").val();
+            var nombre = $("#nombre").val();
+            var precio = $("#precio").val();
+            var datos="Producto<br>";
+             datos+="Codigo:"+codigo+"<br>";
+             datos+="Nombre:"+nombre+"<br>";
+             datos+="Precio:"+precio+"<br>";
+            $("#datos").html(datos);
+            alert("Producto Registrado!!!");
+            $("#codigo").val("");
+            $("#nombre").val("");
+            $("#precio").val("");
+        });
+    })
+    </script>
+</head>    
+<body>
+  <div data-role="page" id="pagina1">
+      <div data-role="header">
+          <h1>Registro Producto</h1>
+      </div>
+      <div data-role="content">
+          <form>
+              <div class="ui-field-contain">
+                  <label for="codigo">Codigo:</label>
+                  <input type="text" name="codigo" id="codigo">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" name="nombre" id="nombre">
+                   <label for="precio">Precio:</label>
+                  <input type="text" name="precio" id="precio">
+              </div>
+              <a id="boton1" class="ui-btn">Registrar</a>
+              <a  href="#pagina2" id="boton2" class="ui-btn">Mostrar Producto</a>
+          </form>
+      </div>
+      <div data-role="footer">
+          <p align="center">Registro Producto</p>
+      </div>
+  </div>
+  <div data-role="page" id="pagina2" data-dialog="true">
+      <div data-role="header">
+          <h1>Datos Producto</h1>
+      </div>
+      <div data-role="content">
+      <h1 id="datos"></h1>
+       <a  href="#pagina1" id="boton3" class="ui-btn">Regresar</a>
+      </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.4.css">
+    <style type="text/css">
+    #paginaMapa,
+    #divMapa {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery.mobile-1.4.4.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script type="text/javascript">
+            $(document).ready(function() {
+                        var marcador1;
+                              function mostrarMapa(posicion) {
+                                var opciones = {            
+                                    zoom: 10,
+                                    center: posicion,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP        
+                                };
+                                var mapa = new google.maps.Map(document.getElementById("divMapa"), opciones);   
+                                marcador1 = new google.maps.Marker({            
+                                    position: posicion,
+                                    map: mapa,
+                                    draggable: true,
+                                    title: "Mi punto!!"        
+                                });
+                            }
+                                 function exito(pos) {         
+                                    var latlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude); 
+                                    mostrarMapa(latlng);            
+                                }        
+                                function fallido(error) {           
+                                    if (error.code == 0) {
+                                        alert("Oops! No se puede obtener la posición actual.");
+                                    }
+                                    if (error.code == 1) {
+                                        alert("Oops! Algo ha salido mal.");
+                                    }
+                                    if (error.code == 2) {
+                                        alert("Oops! No has aceptado compartir tu posición.");
+                                    }
+                                    if (error.code == 3) {
+                                        alert("Oops! Hemos superado el tiempo de espera");
+                                    }        
+                                }      
+                        function obtenerPosicionActual() {
+                            if (navigator.geolocation) {
+                                navigator.geolocation.getCurrentPosition(exito, fallido, {
+                                    maximumAge: 500000,
+                                    enableHighAccuracy: true,
+                                    timeout: 6000
+                                });
+                            }
+                        }
+                      obtenerPosicionActual();
+                        });
+    </script>
+</head>
+<body>
+  <div data-role="page" id="paginaMapa">
+      <div data-role="header">
+          <h1>Mapa</h1>
+      </div>
+      <div data-role="content" id="divMapa">
+      </div>
+  </div>
+</body>
+</html>

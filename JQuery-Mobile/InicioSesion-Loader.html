@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"  content="width = device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.4.css">
+    <script src="js/jquery-1.11.1.js"></script>
+    <script type="text/javascript">
+    $(document).on("mobileinit", function() {
+        $.mobile.loader.prototype.options.text = "Conectando...";
+        $.mobile.loader.prototype.options.textVisible = true;
+        $.mobile.loader.prototype.options.textonly = false;
+        $.mobile.loader.prototype.options.theme = "a";
+        $.mobile.loader.prototype.options.html = "";
+    });
+    </script>
+    <script src="js/jquery.mobile-1.4.4.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#boton1").click(function() {
+            $.mobile.loading("show");
+            setTimeout(function() {
+                $.mobile.loading("hide");
+                var usuario = $("#usuario").val();
+                var mensaje = "Bienvenido " + usuario + " al sistema!!";
+                $("#mensaje").html(mensaje);
+                $.mobile.changePage("#paginaPerfil");
+            }, 4000);
+        });
+    })
+    </script>
+</head>
+<body>
+  <div data-role="page" id="pagina1">
+      <div data-role="header">
+          <h1>Inicio Sesión</h1>
+      </div>
+      <div data-role="content">
+          <form>
+              <div class="ui-field-contain">
+                  <label for="usuario">Usuario:</label>
+                  <input type="text" name="usuario" id="usuario">
+                  <label for="clave">Clave:</label>
+                  <input type="password" name="clave" id="clave">
+              </div>
+              <a id="boton1" class="ui-btn">Iniciar Sesión</a>
+          </form>
+      </div>
+      <div data-role="footer">
+          <p align="center">Inicio Sesión</p>
+      </div>
+  </div>
+  <div data-role="page" id="paginaPerfil">
+      <div data-role="header">
+          <h1>Perfil</h1>
+      </div>
+      <div data-role="content">
+          <h1 id="mensaje"></h1>
+      </div>
+      <div data-role="footer">
+          <p align="center">Perfil</p>
+      </div>
+  </div>
+</body>
+</html>

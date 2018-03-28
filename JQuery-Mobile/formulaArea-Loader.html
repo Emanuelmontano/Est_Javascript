@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width = device-width, initial-scale=1" charset="utf-8">
+
+    <link rel="stylesheet" href="jquery.mobile-1.4.4.css">
+
+    <script src="jquery-1.11.1.js"></script>
+    <script src="jquery.mobile-1.4.4.js"></script>
+
+    <script type="text/javascript">
+    function cambiarPagina(page) {
+
+        $.mobile.changePage("#" + page);
+
+
+    }
+
+    $(document).ready(function() {
+
+
+
+        $("#boton1").click(function() {
+
+              
+            $.mobile.loading("show", {            
+                text: "Calculando area del triangulo...",
+                            textVisible: true,
+                            theme: "a",
+                            textonly: false,
+                            html: ''    
+            });
+
+
+            setTimeout(function() {
+
+                var baseT = parseFloat($("#baseT").val());
+                var alturaT = parseFloat($("#alturaT").val());
+                var resultado = (baseT * alturaT) / 2;
+
+                $.mobile.loading("hide");
+
+                alert("El area del triangulo es: " + resultado);
+
+                $("#baseT").val("");
+                $("#alturaT").val("");
+
+
+
+            }, 4000);
+
+
+
+        });
+
+
+        $("#boton2").click(function() {
+
+            $.mobile.loading("show", {            
+                text: "Calculando area del cuadrado...",
+                            textVisible: true,
+                            theme: "a",
+                            textonly: false,
+                            html: ''    
+            });
+
+            setTimeout(function() {
+
+                var lado = parseFloat($("#lado").val());
+
+                var resultado = Math.pow(lado, 2);
+
+                $.mobile.loading("hide");
+
+                alert("El area del cuadrado es: " + resultado);
+
+                $("#lado").val("");
+
+
+
+            }, 5000);
+
+
+
+
+
+
+
+        });
+
+
+
+        $("#boton3").click(function() {
+
+            $.mobile.loading("show", {            
+                text: "Calculando area del rectangulo...",
+                            textVisible: true,
+                            theme: "a",
+                            textonly: false,
+                            html: ''    
+            });
+
+
+
+            setTimeout(function() {
+
+                var baseR = parseFloat($("#baseR").val());
+                var alturaR = parseFloat($("#alturaR").val());
+                var resultado = baseR * alturaR;
+
+                $.mobile.loading("hide");
+
+                alert("El area del rectangulo es: " + resultado);
+
+                $("#baseR").val("");
+                $("#alturaR").val("");
+
+
+            }, 4000);
+
+
+
+
+
+        });
+
+
+    })
+    </script>
+
+    <body>
+        <div data-role="page" id="pagina1">
+            <div data-role="header">
+                <h1>FORMULAS DE AREAS</h1>
+            </div>
+            <div data-role="content">
+                <form>
+
+                    <a onclick="cambiarPagina('paginaTriangulo')" class="ui-btn">TRIANGULO</a>
+                    <a onclick="cambiarPagina('paginaCuadrado')" class="ui-btn">CUADRADO</a>
+                    <a onclick="cambiarPagina('paginaRectangulo')" class="ui-btn">RECTANGULO</a>
+
+                </form>
+            </div>
+            <div data-role="footer">
+                <p align="center">FORMULAS DE AREAS</p>
+            </div>
+        </div>
+
+
+        <div data-role="page" id="paginaTriangulo">
+            <div data-role="header">
+                <h1>TRIANGULO</h1>
+            </div>
+            <div data-role="content">
+                <form>
+                    <div class="ui-field-contain">
+                        <label for="baseT">Base:</label>
+                        <input type="text" name="baseT" id="baseT">
+                        <label for="alturaT">Altura:</label>
+                        <input type="text" name="alturaT" id="alturaT">
+
+                    </div>
+                    <a id="boton1" class="ui-btn">Calcular</a>
+                    <a onclick="cambiarPagina('pagina1')" class="ui-btn">Volver</a>
+                </form>
+            </div>
+            <div data-role="footer">
+                <p align="center">TRIANGULO</p>
+            </div>
+        </div>
+
+
+        <div data-role="page" id="paginaCuadrado">
+            <div data-role="header">
+                <h1>CUADRADO</h1>
+            </div>
+            <div data-role="content">
+                <form>
+                    <div class="ui-field-contain">
+                        <label for="lado">Lado:</label>
+                        <input type="text" name="lado" id="lado">
+                    </div>
+                    <a id="boton2" class="ui-btn">Calcular</a>
+                    <a onclick="cambiarPagina('pagina1')" class="ui-btn">Volver</a>
+                </form>
+            </div>
+            <div data-role="footer">
+                <p align="center">CUADRADO</p>
+            </div>
+        </div>
+
+
+        <div data-role="page" id="paginaRectangulo">
+            <div data-role="header">
+                <h1>RECTANGULO</h1>
+            </div>
+            <div data-role="content">
+                <form>
+                    <div class="ui-field-contain">
+                        <label for="baseR">Base:</label>
+                        <input type="text" name="baseR" id="baseR">
+                        <label for="alturaR">Altura:</label>
+                        <input type="text" name="alturaR" id="alturaR">
+
+                    </div>
+                    <a id="boton3" class="ui-btn">Calcular</a>
+                    <a onclick="cambiarPagina('pagina1')" class="ui-btn">Volver</a>
+                </form>
+            </div>
+            <div data-role="footer">
+                <p align="center">RECTANGULO</p>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </body>
+
+</html>

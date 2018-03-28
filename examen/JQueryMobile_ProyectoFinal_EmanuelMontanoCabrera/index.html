@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"  content="width = device-width, initial-scale=1" charset="utf-8">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.4.css">
+    <style type="text/css">
+    #paginaMapa,
+    #divMapaRegistro,
+    #paginaRegistrarPunto,
+    #divMapa {
+        width: 100%;
+        height: 400px;
+        padding: 0;
+    }
+    #divMapaRegistro {
+        width: 100%;
+        height: 300px;
+        padding: 0;
+    }
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery.mobile-1.4.4.js"></script>
+    <script src="js/Evento.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+</head>
+<body>
+  <div data-role="page" id="paginaInicio">
+      <div data-role="header">
+          <h1>Gestión Hoteles</h1>
+      </div>
+      <div data-role="content">
+          <form>
+              <a id="btnRegistroHotel" data-role="button" class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow-icon">Registrar</a>
+              <a onclick="cambiarPagina('paginaConsultaHoteles')" class="ui-btn ui-icon-search ui-btn-icon-left ui-shadow-icon">Consultar</a>
+              <a id="btnlistaHotel" class="ui-btn ui-icon-bars ui-btn-icon-left ui-shadow-icon" data-role="button">Lista Hoteles</a>
+              <a href="#btnVerHotel" onclick="sessionStorage.idVerHotel='1';" data-role="button"> Ver Hotel 1</a>
+          </form>
+      </div>
+      <div data-role="footer">
+          <p align="center">Gestión Hoteles</p>
+      </div>
+  </div>
+  <div data-role="page" id="paginaRegistroHoteles">
+      <div data-role="header">
+          <h1>Registro de Hotel</h1>
+      </div>
+      <div data-role="content">
+          <form>
+              <div class="ui-field-contain">
+                  <label for="id">Codigo:</label>
+                  <input type="text" name="id" id="id" disabled>
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" name="nombre" id="nombre">
+                  <div class="ui-field-contain">
+                      <label for="nombre">Ubicacion:</label>
+                  </div>
+                  <div data-role="content" id="divMapaRegistro"></div>
+                  <label for="direccion">Dirección:</label>
+                  <input type="text" name="direccion" id="direccion" disabled>
+                  <label for="telefono">Telefono:</label>
+                  <input type="text" name="telefono" id="telefono">
+                  <label for="email">Email:</label>
+                  <input type="email" name="email" id="email">
+                  <label for="descripcion">Descripción:</label>
+                  <input type="text" name="descripcion" id="descripcion">
+              </div>
+              <a id="btnGuardarHotel" class="ui-btn ui-icon-check ui-btn-icon-right ui-shadow-icon">Guardar</a>
+              <a onclick="cambiarPagina('paginaInicio')" class="ui-btn ui-icon-home ui-btn-icon-right ui-shadow-icon">Volver</a>
+          </form>
+      </div>
+      <div data-role="footer">
+          <p align="center">Registro Hotel</p>
+      </div>
+  </div>
+  <div data-role="page" id="paginaConsultaHoteles">
+      <div data-role="header">
+          <h1>Consulta Hotel</h1>
+      </div>
+      <div data-role="content">
+          <form>
+              <div class="ui-field-contain">
+                  <label>Codigo:</label>
+                  <input type="text" name="codigoB" id="codigoB">
+                  <h3 id="verHotelConsultado"></h3>
+                  <label>Nombre:</label>
+                  <input type="text" id="c_nombre" disabled>
+                  <label >Dirección:</label>
+                  <input type="text" id="c_direccion" disabled>
+                  <label >Telefono:</label>
+                  <input type="text" id="c_telefono" disabled>
+                  <label >Email:</label>
+                  <input type="email" id="c_email" disabled>
+                  <label >Descripción:</label>
+                  <input type="text" id="c_descripcion" disabled>
+              </div>
+              <a id="btnConsultar" data-role="button" class="ui-btn ui-icon-search ui-btn-icon-right ui-shadow-icon">Consultar</a>
+              <a onclick="cambiarPagina('paginaInicio')" class="ui-btn ui-icon-home ui-btn-icon-right ui-shadow-icon">Volver</a>
+          </form>
+      </div>
+      <div data-role="footer">
+          <p align="center">Consulta Hotel</p>
+      </div>
+  </div>
+  <div data-role="page" id="paginaListaHoteles">
+      <div data-role="header">
+          <h1>Lista Hoteles</h1>
+      </div>
+      <div data-role="content">
+          <ul data-role="listview" id="listaHotel"  data-inset="true">
+          </ul>
+          <a onclick="cambiarPagina('paginaInicio')" class="ui-btn ui-icon-home ui-btn-icon-right ui-shadow-icon">Volver</a>
+      </div>
+      <div data-role="footer">
+          <p align="center">Lista Hoteles</p>
+      </div>
+  </div>
+</body>
+</html>
