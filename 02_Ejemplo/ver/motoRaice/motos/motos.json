@@ -1,0 +1,94 @@
+[
+    {   
+        "id": "1",
+        "nombre":"R6",
+        "imageUrl": "css/img/motos/R6-yamaha.png", 
+        "model": 2015, 
+        "motor": {
+            "tipo": "kwj", 
+            "marcha": "mar234",
+            "transmision": "584858",
+            "arranque": "Eléctrico y a pedal",
+            "encendido": "CDI"
+        },
+        "fabricante":{
+            "nombre": "Pedro",
+            "pais": "Ruisa"
+        },
+        "cilindraje":"1000 cc",
+        "carateristicas":{
+            "tamano":"2 mtrs",
+            "peso":"1000 klg"
+        },
+        "descripcion": "R6-yamaha bonita foto"
+    },
+    {   
+        "id": "2",
+        "nombre":"k-kawasaki",
+        "imageUrl": "css/img/motos/k-kawasaki.png", 
+        "model": 2015, 
+        "motor": {
+            "tipo": "kwj", 
+            "marcha": "mar234",
+            "transmision": "584858",
+            "arranque": "Eléctrico y a pedal",
+            "encendido": "CDI"
+        },
+        "fabricante":{
+            "nombre": "Pedro",
+            "pais": "Ruisa"
+        },
+        "cilindraje":"1000 cc",
+        "carateristicas":{
+            "tamano":"2 mtrs",
+            "peso":"1000 klg"
+        },
+        "descripcion": "R6-yamaha bonita foto"
+    },
+    {   
+        "id": "3",
+        "nombre":"R-GSX-suzuki",
+        "imageUrl": "css/img/motos/R-GSX-suzuki.png", 
+        "model": 2015, 
+        "motor": {
+            "tipo": "kwj", 
+            "marcha": "mar234",
+            "transmision": "584858",
+            "arranque": "Eléctrico y a pedal",
+            "encendido": "CDI"
+        },
+        "fabricante":{
+            "nombre": "Pedro",
+            "pais": "Ruisa"
+        },
+        "cilindraje":"1000 cc",
+        "carateristicas":{
+            "tamano":"2 mtrs",
+            "peso":"1000 klg"
+        },
+        "descripcion": "R6-yamaha bonita foto"
+    },
+    {   
+        "id": "4",
+        "nombre":"Ninja-kawasaki",
+        "imageUrl": "css/img/motos/Ninja-kawasaki.png", 
+        "model": 2015, 
+        "motor": {
+            "tipo": "kwj", 
+            "marcha": "mar234",
+            "transmision": "584858",
+            "arranque": "Eléctrico y a pedal",
+            "encendido": "CDI"
+        },
+        "fabricante":{
+            "nombre": "Pedro",
+            "pais": "Ruisa"
+        },
+        "cilindraje":"1000 cc",
+        "carateristicas":{
+            "tamano":"2 mtrs",
+            "peso":"1000 klg"
+        },
+        "descripcion": "R6-yamaha bonita foto"
+    }
+]

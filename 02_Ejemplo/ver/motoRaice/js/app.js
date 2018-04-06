@@ -4,6 +4,7 @@
 /* se crea el modulo del aplicativo*/
 var motoApp = angular.module('motoApp', [
 	'ngRoute',
+  'motoAppAnimations',
   'motoAppControllers',
   'motoAppServices' // se agrega el servicio creado en services.js
 ]);
